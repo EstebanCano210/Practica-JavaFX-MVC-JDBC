@@ -107,7 +107,7 @@ create table Compras(
 
 create table Promociones(
 	promocionId int not null auto_increment,
-    precioPromocion decimal(10,2) not null,
+    precioPromocio decimal(10,2) not null,
     descripcionPromocion varchar(100),
     fechaInicio date not null,
     fechaFinalizacion date not null,
