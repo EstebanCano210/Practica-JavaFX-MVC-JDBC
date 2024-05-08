@@ -7,7 +7,15 @@ package org.estebancano.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import org.estebancano.system.Main;
 
 /**
@@ -17,14 +25,36 @@ import org.estebancano.system.Main;
  */
 public class MenuTicketSoporteController implements Initializable {
     Main stage;
-    /**
-     * Initializes the controller class.
-     */
+    
+    @FXML
+    TextField tfClienteId;
+    @FXML
+    TextArea taDescripcion;
+    @FXML
+    ComboBox cmbEstatus, cmbCliente, cmbFactura;
+    @FXML
+    TableView tblTickets;
+    @FXML
+    TableColumn colTicketId, colDescripcion, colEstatus, colCliente, colFacturaId;
+    @FXML
+    Button btnGuardar,btnVaciar,btnRegresar;
+    
+    
+    @FXML
+    public void handleButtonAction(ActionEvent event){
+        if(event.getSource() == btnRegresar){
+            stage.menuPrincipalView();
+        }
+    }
+    
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL location, ResourceBundle resources) {
         // TODO
     }    
 
+    
+    
     public Main getStage() {
         return stage;
     }

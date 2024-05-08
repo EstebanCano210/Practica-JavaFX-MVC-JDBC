@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import org.estebancano.controller.FormClienteController;
 import org.estebancano.controller.MenuClienteController;
 import org.estebancano.controller.MenuPrincipalController;
+import org.estebancano.controller.MenuTicketSoporteController;
 
 /**
  *
@@ -78,6 +79,15 @@ public class Main extends Application {
             formClienteView.setOp(op);
             formClienteView.setStage(this);
         } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void menuTicketSoporteView(){
+        try {
+            MenuTicketSoporteController menuTicketSoporteView = (MenuTicketSoporteController)switchScene("MenuTicketSoporteView.fxml", 1200 , 750);
+            menuTicketSoporteView.setStage(this);
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
