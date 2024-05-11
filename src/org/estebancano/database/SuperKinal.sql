@@ -27,7 +27,7 @@ create table Cargos(
     sueldo decimal(10,2) not null,
     horaEntrada time not null,
     horaSalida time not null,
-    cargoId INT,
+    cargoId int,
     encargadoId int,
     primary key PK_empleadoId(empleadoId),
     constraint FK_Empleados_Cargos foreign key Empleados (cargoId)
@@ -50,16 +50,16 @@ create table Facturas(
         references Empleados(empleadoId)
 );
 
-create table TicketSporte(
+create table TicketSoporte(
 	ticketSoporteId int not null auto_increment,
     descripcionTicket varchar(250),
     estatus varchar(30) not null,
     clienteId INT,
     facturaId INT ,
     primary key PK_ticketSoporteId(ticketSoporteId),
-    constraint FK_TicketSporte_Clientes foreign key TicketSporte(clienteId)
+    constraint FK_TicketSporte_Clientes foreign key TicketSoporte(clienteId)
         references Clientes(clienteId),
-    constraint FK_TicketSporte_Facturas foreign key TicketSporte(facturaId)
+    constraint FK_TicketSporte_Facturas foreign key TicketSoporte(facturaId)
         references Facturas(facturaId)
 );
 

@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/informatica/Documents/Repo%20Local/Practica-JavaFX-MVC-JDBC/src/org/estebancano/database/DB_sp.sql</file>
-            <file>file:/C:/Users/informatica/Documents/Repo%20Local/Practica-JavaFX-MVC-JDBC/src/org/estebancano/database/DB_fn.sql</file>
-            <file>file:/C:/Users/informatica/Documents/Repo%20Local/Practica-JavaFX-MVC-JDBC/src/org/estebancano/model/Cliente.java</file>
-            <file>file:/C:/Users/informatica/Documents/Repo%20Local/Practica-JavaFX-MVC-JDBC/src/org/estebancano/system/Main.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/dao/Conexion.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/database/DB_fn.sql</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/system/Main.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/controller/MenuTicketSoporteController.java</file>
         </group>
     </open-files>
 </project-private>

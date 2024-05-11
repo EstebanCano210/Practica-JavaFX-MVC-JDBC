@@ -269,10 +269,10 @@ delimiter ;
 -- TicketSporte
 -- Agregar
 Delimiter $$
-create procedure sp_AgregarTicket(in desTick varchar(250), in estat varchar(30), in cliId int, in facId int)
+create procedure sp_AgregarTicket(in desTic varchar(250), in estat varchar(30), in cliId int, in facId int)
 	Begin
 		insert into TicketSoporte(descripcionTicket, estatus, clienteId, facturaId) values
-			(desTick, estat, cliId, facId);
+			(desTic, 'Recien Creado', cliId, facId);
 	End$$
 Delimiter ;
 
