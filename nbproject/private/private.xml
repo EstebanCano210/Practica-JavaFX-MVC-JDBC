@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/dao/Conexion.java</file>
-            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/database/DB_fn.sql</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/controller/MenuPrincipalController.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/model/Factura.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/model/Empleado.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/controller/MenuFacturaController.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/controller/FormFacturaController.java</file>
             <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/system/Main.java</file>
             <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/controller/MenuTicketSoporteController.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/controller/FormClienteController.java</file>
+            <file>file:/C:/Users/Esteban/Documents/NetBeansProjects/SuperKinal/src/org/estebancano/controller/MenuClienteController.java</file>
         </group>
     </open-files>
 </project-private>

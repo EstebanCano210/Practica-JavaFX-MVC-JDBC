@@ -43,7 +43,7 @@ create table Facturas(
     clienteId int not null,
     empleadoId int not null,
     total decimal(10,2),
-    primary key PK_facturaId(facturaId),
+    primary key PK_facturaId(facturaI),
     constraint FK_Facturas_Clientes foreign key Facturas(clienteId)
         references Clientes(clienteId),
     constraint FK_Facturas_Empleados foreign key Facturas(empleadoId)

@@ -18,12 +18,12 @@
             <Image url="@../image/MenuTicketSoporte.png" />
          </image>
       </ImageView>
-      <TextField fx:id="tTicketId" layoutX="20.0" layoutY="159.0" prefHeight="34.0" prefWidth="173.0" />
+      <TextField fx:id="tfTicketId" layoutX="20.0" layoutY="159.0" prefHeight="34.0" prefWidth="173.0" />
       <TextArea fx:id="taDescripcion" layoutX="20.0" layoutY="249.0" prefHeight="172.0" prefWidth="284.0" wrapText="true" />
       <ComboBox fx:id="cmbCliente" layoutX="326.0" layoutY="159.0" prefHeight="34.0" prefWidth="357.0" />
       <ComboBox fx:id="cmbFactura" layoutX="793.0" layoutY="159.0" prefHeight="34.0" prefWidth="155.0" />
       <ComboBox fx:id="cmbEstatus" layoutX="14.0" layoutY="472.0" prefHeight="34.0" prefWidth="253.0" />
-      <TableView fx:id="tblTicket" layoutX="352.0" layoutY="214.0" prefHeight="497.0" prefWidth="785.0">
+      <TableView fx:id="tblTicket" layoutX="352.0" layoutY="214.0" onMouseClicked="#cargarForm" prefHeight="497.0" prefWidth="785.0">
         <columns>
           <TableColumn fx:id="colTicketId" prefWidth="60.0" text="TicketId" />
           <TableColumn fx:id="colDescripcion" prefWidth="310.0" text="Descripcion" />
