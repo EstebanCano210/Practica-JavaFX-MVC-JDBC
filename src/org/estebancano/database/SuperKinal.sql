@@ -20,6 +20,30 @@ create table Cargos(
     primary key pk_cargoId(cargoId)
 );
  
+ create table Distribuidores(
+	distribuidorId int not null auto_increment,
+	nombreDistribuidor varchar(30) not null,
+    direccionDistribuidor varchar(200) not null,
+    nitDistribuidor varchar(15) not null,
+    telefonoDistribuidor varchar(15) not null,
+    web varchar(50),
+    primary key pk_distribuidorId (distribuidorId)
+);
+
+create table CategoriaProductos(
+	categoriaProductoId int not null auto_increment,
+    nombreCategoria varchar(30) not null,
+    descripcionCategoria varchar(100) not null,
+    primary key PK_categoriaProductoId(categoriaProductoId)
+);
+ 
+ create table Compras(
+	compraId int not null auto_increment,
+    fechaCompra date not null,
+    totalCompra decimal(10,2),
+    primary key pk_compraId (compraId)
+);
+ 
  create table Empleados(
     empleadoId int not null auto_increment,
     nombreEmpleado varchar(30) not null,
@@ -27,7 +51,7 @@ create table Cargos(
     sueldo decimal(10,2) not null,
     horaEntrada time not null,
     horaSalida time not null,
-    cargoId int,
+    cargoId INT,
     encargadoId int,
     primary key PK_empleadoId(empleadoId),
     constraint FK_Empleados_Cargos foreign key Empleados (cargoId)
@@ -43,41 +67,24 @@ create table Facturas(
     clienteId int not null,
     empleadoId int not null,
     total decimal(10,2),
-    primary key PK_facturaId(facturaI),
+    primary key PK_facturaId(facturaId),
     constraint FK_Facturas_Clientes foreign key Facturas(clienteId)
         references Clientes(clienteId),
     constraint FK_Facturas_Empleados foreign key Facturas(empleadoId)
         references Empleados(empleadoId)
 );
 
-create table TicketSoporte(
+create table TicketSporte(
 	ticketSoporteId int not null auto_increment,
     descripcionTicket varchar(250),
     estatus varchar(30) not null,
     clienteId INT,
     facturaId INT ,
     primary key PK_ticketSoporteId(ticketSoporteId),
-    constraint FK_TicketSporte_Clientes foreign key TicketSoporte(clienteId)
+    constraint FK_TicketSporte_Clientes foreign key TicketSporte(clienteId)
         references Clientes(clienteId),
-    constraint FK_TicketSporte_Facturas foreign key TicketSoporte(facturaId)
+    constraint FK_TicketSporte_Facturas foreign key TicketSporte(facturaId)
         references Facturas(facturaId)
-);
-
-create table Distribuidores(
-	distribuidorId int not null auto_increment,
-	nombreDistribuidor varchar(30) not null,
-    direccionDistribuidor varchar(200) not null,
-    nitDistribuidor varchar(15) not null,
-    telefonoDistribuidor varchar(15) not null,
-    web varchar(50),
-    primary key pk_distribuidorId (distribuidorId)
-);
-
-create table CategoriaProductos(
-	categoriaProductoId int not null auto_increment,
-    nombreCategoria varchar(30) not null,
-    descripcionCategoria varchar(100) not null,
-    primary key PK_categoriaProductoId(categoriaProductoId)
 );
 
 create table Productos(
@@ -96,13 +103,6 @@ create table Productos(
         references Distribuidores(distribuidorId),
 	constraint FK_Productos_CategoriaProductos foreign key Productos(categoriaProductoId)
         references CategoriaProductos(categoriaProductoId)
-);
-
-create table Compras(
-	compraId int not null auto_increment,
-    fechaCompra date not null,
-    totalCompra decimal(10,2),
-    primary key pk_compraId (compraId)
 );
 
 create table Promociones(

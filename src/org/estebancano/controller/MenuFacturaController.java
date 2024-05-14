@@ -68,23 +68,12 @@ public class MenuFacturaController implements Initializable {
             eliminarFactura(((Factura)tblFactura.getSelectionModel().getSelectedItem()).getFacturaId());
             cargarDatos();
         }else if(event.getSource() == btnBuscar){
-            tblFactura.getItems().clear();
-            if(tblFactura.getText().equals("")){
-                cargarDatos();
-            }else {
-            op = 3;
-            cargarDatos();   
-            }  
+            
         }
     }
     
-    public void cargarDatos(){
-        if(op == 3){
-            tblClientes.getItems().add(buscarCliente());
-            op = 0;
-        }else{
-            tblFactura.setItems(listarFacturas());
-        }  
+    public void cargarDatos(){  
+        tblFactura.setItems(listarFacturas()); 
         colFacturaId.setCellValueFactory(new PropertyValueFactory<Factura, Integer>("facturaId"));
         colFecha.setCellValueFactory(new PropertyValueFactory<Factura, Date>("fecha"));
         colHora.setCellValueFactory(new PropertyValueFactory<Factura, Time>("hora"));

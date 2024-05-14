@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.estebancano.controller.FormClienteController;
-import org.estebancano.controller.FormFacturaController;
+import org.estebancano.controller.MenuCargoController;
 import org.estebancano.controller.MenuClienteController;
 import org.estebancano.controller.MenuFacturaController;
 import org.estebancano.controller.MenuPrincipalController;
@@ -94,6 +94,15 @@ public class Main extends Application {
         }
     }
     
+    public void menuCargoView(){
+        try{
+            MenuCargoController menuCargoView = (MenuCargoController)switchScene("MenuCargoView.fxml", 600 , 675);
+            menuCargoView.setStage(this);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
     public void menuFacturaView(){
         try{
             MenuFacturaController menuFacturaView = (MenuFacturaController)switchScene("MenuFacturaView.fxml", 1200 , 750);
@@ -101,17 +110,7 @@ public class Main extends Application {
         }catch (Exception e){
             e.printStackTrace();
         } 
-    }
-    
-    public void formFacturaView(int op){
-        try{
-            FormFacturaController formFacturaView = (FormFacturaController)switchScene("FormFacturaView.fxml", 500 , 770);
-            formFacturaView.setOp(op);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-    
+    }    
     /**
      * @param args the command line arguments
      */

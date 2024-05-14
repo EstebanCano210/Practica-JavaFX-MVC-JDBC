@@ -236,7 +236,7 @@ create procedure sp_EliminarFactura(in facId int)
 	End $$
 Delimiter ;
 
-call sp_EliminarFactura();
+call sp_EliminarFactura(2);
 
 -- Listar
 Delimiter $$

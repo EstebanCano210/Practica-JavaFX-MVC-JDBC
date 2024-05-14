@@ -57,28 +57,12 @@ public class Factura {
         this.hora = hora;
     }
 
-    public int getClienteId() {
-        return ClienteId;
-    }
-
-    public void setClienteId(int ClienteId) {
-        this.ClienteId = ClienteId;
-    }
-
     public String getCliente() {
         return cliente;
     }
 
     public void setCliente(String cliente) {
         this.cliente = cliente;
-    }
-
-    public int getEmpleadoId() {
-        return EmpleadoId;
-    }
-
-    public void setEmpleadoId(int EmpleadoId) {
-        this.EmpleadoId = EmpleadoId;
     }
 
     public String getEmpleado() {
@@ -97,6 +81,8 @@ public class Factura {
         this.total = total;
     }
 
+    
+    
     @Override
     public String toString() {
         return "Factura{" + "facturaId=" + facturaId + ", fecha=" + fecha + ", hora=" + hora + ", ClienteId=" + ClienteId + ", cliente=" + cliente + ", EmpleadoId=" + EmpleadoId + ", empleado=" + empleado + ", total=" + total + '}';

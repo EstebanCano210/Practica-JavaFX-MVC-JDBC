@@ -133,14 +133,14 @@ delimiter ;
 
 
 Delimiter $$
-Create procedure sp_AgregarEmpleado(in nomEmp varchar(30), in apeEmp varchar(30), in sue decimal(10,2), in horEnt time, in horSal time, in cargId int, in encargId int)
+create procedure sp_AgregarEmpleado(in nomEmp varchar(30), in apeEmp varchar(30), in sue decimal(10,2), in horEnt time, in horSal time, in cargId int, in encId int)
 	Begin
 		insert into Empleados(nombreEmpleado, apellidoEmpleado, sueldo, horaEntrada, horaSalida, cargoId, encargadoId) values
-			(nomEmp, apeEmp, sue, horEnt, horSal, cargId, encargId);
+			(nomEmp, apeEmp, sue, horEnt, horSal, cargId, encId );
 	End$$
 Delimiter ;
 
-CALL sp_AgregarEmpleado('Juan', 'Perez', 2500.00, '09:00:00', '17:00:00', 2, NULL);
+CALL sp_AgregarEmpleado('Juan', 'Perez', 2500.00, '09:00:00', '17:00:00', 1, NULL);
 
 
 -- Eliminar
@@ -225,7 +225,7 @@ create procedure sp_AgregarFactura(in fech date, in hr time, in cliId int, in em
 	End$$
 Delimiter ;
 
-CALL sp_AgregarFactura('2024-05-10', '15:30:00', 1, 1, 100.50);
+CALL sp_AgregarFactura('2024-05-10', '15:30:00', 2, 1, 100.50);
 
 -- Eliminar
 Delimiter $$
