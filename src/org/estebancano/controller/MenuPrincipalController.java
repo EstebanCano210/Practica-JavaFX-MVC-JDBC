@@ -20,7 +20,7 @@ import org.estebancano.system.Main;
 public class MenuPrincipalController implements Initializable{
     private Main stage;
     @FXML
-    MenuItem btnClientes, btnTicketSoporte;
+    MenuItem btnClientes, btnTicketSoporte, btnFactura, btnCargo;
     
     @FXML
     public void handleButtonAction(ActionEvent event) throws Exception{
@@ -28,7 +28,9 @@ public class MenuPrincipalController implements Initializable{
             stage.menuClienteView();
         } else if (event.getSource() == btnTicketSoporte){
             stage.menuTicketSoporteView();
-        }
+        } else if (event.getSource() == btnCargo){
+           stage.menuCargoView();
+        }    
     }
     
     @Override

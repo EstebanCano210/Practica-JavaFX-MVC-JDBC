@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.estebancano.controller.MenuCargoController">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/MenuCargos.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblCargo" layoutX="358.0" layoutY="193.0" prefHeight="428.0" prefWidth="803.0">
+        <columns>
+          <TableColumn fx:id="colCrgoId" prefWidth="88.0" text="CargoId" />
+          <TableColumn fx:id="colCargoNombre" prefWidth="409.0" text="nombreCargo" />
+            <TableColumn fx:id="colCargoDes" prefWidth="409.0" text="descripcionCargo" />
+        </columns>
+      </TableView>
+      <TextField layoutX="857.0" layoutY="141.0" prefHeight="23.0" prefWidth="227.0" promptText="Ingrese el Id del  cargo a buscar" />
+      <Button fx:id="btnAgregar" layoutX="74.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="68.0" prefWidth="161.0" text="Agregar" />
+      <Button fx:id="btnEliminar" layoutX="74.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="65.0" prefWidth="161.0" text="Eliminar" />
+      <Button fx:id="btnEditar" layoutX="74.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="69.0" prefWidth="164.0" text="Editar" />
+      <Button fx:id="btnRegresar" layoutX="108.0" layoutY="645.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="33.0" prefWidth="103.0" text="Regresar" />
+      <Button fx:id="btnBuscar" layoutX="1092.0" layoutY="137.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="50.0">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/Buscar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

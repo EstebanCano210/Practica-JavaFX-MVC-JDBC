@@ -10,12 +10,15 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.estebancano.controller.FormCargoController;
 import org.estebancano.controller.FormClienteController;
+import org.estebancano.controller.FormDistribuidorController;
+import org.estebancano.controller.MenuCargoController;
 import org.estebancano.controller.MenuClienteController;
+import org.estebancano.controller.MenuDistribuidorController;
 import org.estebancano.controller.MenuPrincipalController;
 import org.estebancano.controller.MenuTicketSoporteController;
 
@@ -83,11 +86,50 @@ public class Main extends Application {
         }
     }
     
+    public void menuCargoView(){
+        try {
+            MenuCargoController menuCargoView = (MenuCargoController)switchScene("MenuCargoView.fxml", 1200 , 750);
+            menuCargoView.setStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void formCargosView(int op){
+        try{
+            FormCargoController formCargoView = (FormCargoController) switchScene ("FormCargoView.fxml", 500, 770);
+            formCargoView.setOp(op);
+            formCargoView.setStage(this);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
     public void menuTicketSoporteView(){
         try {
             MenuTicketSoporteController menuTicketSoporteView = (MenuTicketSoporteController)switchScene("MenuTicketSoporteView.fxml", 1200 , 750);
             menuTicketSoporteView.setStage(this);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+   public void menuDistribuidorView(){
+        try {
+            MenuDistribuidorController menuDistribuidorView = (MenuDistribuidorController)switchScene("MenuDistribuidorView.fxml", 1200 , 750);
+            menuDistribuidorView.setStage(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+   
+   public void formDistribuidorView(int op){
+        try{
+            FormDistribuidorController formDistribuidorView = (FormDistribuidorController) switchScene ("FormDistribuidorView.fxml", 500, 770);
+            formDistribuidorView.setOp(op);
+            formDistribuidorView.setStage(this);
+        } catch (Exception e){
             System.out.println(e.getMessage());
         }
     }

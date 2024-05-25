@@ -11,6 +11,7 @@ begin
 end$$
 delimiter ;
  
+ call sp_AgregarCliente('Juan','Guerra','6534-8968','ciudad','cf');
 -- Listar
 delimiter $$
 create procedure sp_ListarClientes()
@@ -76,6 +77,8 @@ create procedure sp_AgregarCargo(in nomCar varchar(30), in desCar varchar (100))
 	End$$
 Delimiter ;
 
+CALL sp_AgregarCargo('Vendedor', 'Encargado del servicio de ventas');
+
 -- Eliminar
 Delimiter $$
 create procedure sp_EliminarCargo(in cargId int)
@@ -93,9 +96,11 @@ create procedure sp_ListarCargos()
 			Cargos.cargoId,
 			Cargos.nombreCargo,
             Cargos.descripcionCargo
-				from Clientes;
+				from Cargos;
 	End $$
 Delimiter ;
+
+call sp_ListarCargos();
 
 -- Editar
 Delimiter $$
@@ -124,13 +129,19 @@ delimiter ;
 
 -- Empleados
 -- Agregar
+
+
+
 Delimiter $$
-create procedure sp_AgregarEmpleado(in nomEmp varchar(30), in apeEmp varchar(30), in sue decimal(10,2), in horEnt time, in horSal time, in cargId int, in encargoId int)
+Create procedure sp_AgregarEmpleado(in nomEmp varchar(30), in apeEmp varchar(30), in sue decimal(10,2), in horEnt time, in horSal time, in cargId int, in encargId int)
 	Begin
 		insert into Empleados(nombreEmpleado, apellidoEmpleado, sueldo, horaEntrada, horaSalida, cargoId, encargadoId) values
 			(nomEmp, apeEmp, sue, horEnt, horSal, cargId, encargId);
 	End$$
 Delimiter ;
+
+CALL sp_AgregarEmpleado('Juan', 'Perez', 2500.00, '09:00:00', '17:00:00', 2, NULL);
+
 
 -- Eliminar
 Delimiter $$
@@ -156,6 +167,8 @@ create procedure sp_ListarEmpleado()
 				from Empleados;
 	End $$
 Delimiter ;
+
+call sp_ListarEmpleado();
 
 -- Editar
 Delimiter $$
@@ -212,6 +225,8 @@ create procedure sp_AgregarFactura(in fech date, in hr time, in cliId int, in em
 	End$$
 Delimiter ;
 
+CALL sp_AgregarFactura('2024-05-10', '15:30:00', 1, 1, 100.50);
+
 -- Eliminar
 Delimiter $$
 create procedure sp_EliminarFactura(in facId int)
@@ -221,21 +236,21 @@ create procedure sp_EliminarFactura(in facId int)
 	End $$
 Delimiter ;
 
+call sp_EliminarFactura(2);
+
 -- Listar
 Delimiter $$
 create procedure sp_ListarFactura()
 	begin
-		select
-			Facturas.facturaId,
-			Facturas.fecha,
-			Facturas.hora,
-            Facturas.clienteId,
-            Facturas.empleadoId,
-            Facturas.total
-				from Facturas;
+		select F.facturaId, F.fecha, F.hora ,
+        CONCAT("Id: ",C.clienteId, " | ",C.nombre, " " , C.apellido) As cliente ,
+        CONCAT("Id: ",E.empleadoId, " | ",E.nombreEmpleado, " " , E.apellidoEmpleado) As empleado, F.total from Facturas F
+        join Clientes C on F.clienteId =  C.clienteId
+		join Empleados E on F.empleadoId = E.empleadoId;	
 	End $$
 Delimiter ;
 
+call sp_ListarFactura();
 -- Editar
 Delimiter $$
 Create procedure sp_EditarFactura(in fec date, in hr time, in cliId int, in empId int, in tot decimal(10,2))
@@ -268,13 +283,16 @@ delimiter ;
 
 -- TicketSporte
 -- Agregar
+
 Delimiter $$
-create procedure sp_AgregarTicket(in desTick varchar(250), in estat varchar(30), in cliId int, in facId int)
+create procedure sp_AgregarTicket(in desTic varchar(250), in cliId int, in facId int)
 	Begin
 		insert into TicketSoporte(descripcionTicket, estatus, clienteId, facturaId) values
-			(desTick, estat, cliId, facId);
+			(desTic, 'Recien Creado', cliId, facId);
 	End$$
 Delimiter ;
+
+call sp_AgregarTicket('Problema 2	','',1,1);
 
 -- Eliminar
 Delimiter $$
@@ -287,23 +305,24 @@ Delimiter ;
 
 -- Listar
 Delimiter $$
-Create procedure sp_ListarTicketSoporte()
+create procedure sp_ListarTicketSoporte()
 	Begin
-		Select TS.ticketSoporteId, TSd.descripcionTicket , TS.estatus ,
-        CONCAT("Id: ",C.clienteId, " | ",C.nombre, " " , C.apellido) As cliente from TicketSoporte TS
-        join Clientes C on TS.cLienteId =  C.clienteId
-        join Facturas F on TS.facturaId = F.facturaId;		
+		Select TS.ticketSoporteId, TS.descripcionTicket , TS.estatus ,  
+        CONCAT("Id: ",C.clienteId, " | ",C.nombre, " " , C.apellido) As cliente , TS.facturaId from TicketSoporte TS
+        join Clientes C on TS.clienteId =  C.clienteId;
     End $$
-Delimiter ; 
+Delimiter ;  
+
+call sp_ListarTicketSoporte();
 
 -- Editar
 Delimiter $$
-Create procedure sp_EditarTicketSoporte(in desTick varchar(250), in estat varchar(30), in clienteId int, in facId int)
+create procedure sp_EditarTicketSoporte(in tickId int,in desTick varchar(250), in est varchar(30), in cliId int, in facId int)
 	Begin
 		Update TicketSoporte
 			set
 				descripcionTicket = descTick,
-                estatus = estat,
+                estatus = est,
                 clienteId = cliId,
                 facturaId = facId
 					where ticketSoporteId = tickId;
