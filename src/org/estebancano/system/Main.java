@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import org.estebancano.controller.FormCargoController;
 import org.estebancano.controller.FormClienteController;
 import org.estebancano.controller.FormDistribuidorController;
+import org.estebancano.controller.FormUsuarioController;
+import org.estebancano.controller.LoginController;
 import org.estebancano.controller.MenuCargoController;
 import org.estebancano.controller.MenuClienteController;
 import org.estebancano.controller.MenuDistribuidorController;
@@ -134,11 +136,22 @@ public class Main extends Application {
         }
     }
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        launch(args);
+   public void LoginView(){
+       try{
+           LoginController loginView = (LoginController)switchScene("LoginView.fxml", 500, 650);
+           loginView.setStage(this);           
+       }catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+   }  
+   
+   public void formUsuarioView(){
+        try{
+            FormUsuarioController formUsuarioView = (FormUsuarioController)switchScene("FormUsuarioView.fxml" , 500, 650);
+            formUsuarioView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
     }
-    
 }

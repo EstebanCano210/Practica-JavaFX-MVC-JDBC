@@ -61,10 +61,14 @@ public class SuperKinalAlert {
             alert.setHeaderText("Edicion Registro");
             alert.setContentText("¿Desea confirmar la edicion del registro?");
             action = alert.showAndWait();
-        }
-        
-        return action;
-        
-        
+        }       
+        return action;        
+    }
+    
+    public void alertaSaludo(String usuario){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Bienvenido");
+        alert.setHeaderText("Bienvenido " + usuario);
+        alert.showAndWait();   
     }
 }
