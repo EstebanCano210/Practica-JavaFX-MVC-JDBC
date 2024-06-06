@@ -22,4 +22,12 @@ public class GenerarReporte {
         }
         return instance;
     }
+    
+    public void GenerarFactura(){
+        try{
+        
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

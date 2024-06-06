@@ -40,7 +40,7 @@ public class LoginController implements Initializable {
     @FXML
     PasswordField tfPasword;
     @FXML
-    Button btnInicio,btnAgregar;
+    Button btnIniciar,btnAgregar;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {

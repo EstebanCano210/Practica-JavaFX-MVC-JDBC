@@ -21,6 +21,7 @@ import org.estebancano.controller.LoginController;
 import org.estebancano.controller.MenuCargoController;
 import org.estebancano.controller.MenuClienteController;
 import org.estebancano.controller.MenuDistribuidorController;
+import org.estebancano.controller.MenuEmpleadosController;
 import org.estebancano.controller.MenuPrincipalController;
 import org.estebancano.controller.MenuTicketSoporteController;
 
@@ -38,6 +39,7 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         this.stage = stage;
         stage.setTitle("Supermercado Kinal");
+        LoginView();
         menuPrincipalView();
         stage.show();
     }
@@ -136,6 +138,17 @@ public class Main extends Application {
         }
     }
     
+   public void MenuEmpleados(int op){
+       try{
+            MenuEmpleadosController menuEmpleadosView = (MenuEmpleadosController)switchScene("MenuEmpleadosView.fxml",1200,750);
+            menuEmpleadosView.setOp(op);
+            menuEmpleadosView.setStage(this);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        } 
+    }
+   
    public void LoginView(){
        try{
            LoginController loginView = (LoginController)switchScene("LoginView.fxml", 500, 650);

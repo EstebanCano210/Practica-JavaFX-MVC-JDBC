@@ -15,9 +15,12 @@ public class Empleado {
     private int empleadoId;
     private String nombreEmpleado;
     private String apellidoEmpleado;
-    private Double sueldo;
+    private double sueldo;
     private Time horaEntrada;
     private Time horaSalida;
+    private String cargo; 
+    private String encargado;
+    private int cargoId;
     private int encargadoId;
 
     public Empleado() {

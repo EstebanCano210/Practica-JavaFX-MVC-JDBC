@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.estebancano.controller.LoginController">
    <children>
+      <TextField fx:id="tfUser" layoutX="83.0" layoutY="258.0" prefHeight="42.0" prefWidth="332.0" style="-fx-background-radius: 25;" />
       <ImageView fitHeight="650.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/Login.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnInicio" layoutX="172.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="155.0" style="-fx-background-radius: 40;" text="Iniciar Sesión" />
+      <Button fx:id="btnInicio" layoutX="171.0" layoutY="389.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="158.0" style="-fx-background-radius: 40; -fx-opacity: 2; -fx-background-color: #1D97C9;" text="Iniciar Sesión">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="btnAgregar" layoutX="171.0" layoutY="485.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="158.0" style="-fx-background-radius: 40; -fx-opacity: 2; -fx-background-color: #7ED957;" text="Registrarse">
+         <font>
+            <Font name="Berlin Sans FB" size="14.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="tfPasword" layoutX="83.0" layoutY="338.0" prefHeight="42.0" prefWidth="332.0" style="-fx-background-radius: 25;" />
    </children>
 </AnchorPane>

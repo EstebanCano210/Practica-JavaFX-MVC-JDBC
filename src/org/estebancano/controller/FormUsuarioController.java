@@ -30,7 +30,7 @@ import org.estebancano.utils.PaswordUtils;
 /**
  * FXML Controller class
  *
- * @author Luis De León
+ * @author informatica
  */
 public class FormUsuarioController implements Initializable {
     private Main stage;
@@ -119,7 +119,7 @@ public class FormUsuarioController implements Initializable {
                 int cargoId = resultSet.getInt("cargoId");
                 int encargadoId = resultSet.getInt("encargadoId");
                 
-                empleados.add(new Empleado(empleadoId,nombreEmpleado,apellidoEmpleado,sueldo,horaEntrada,horaSalida,cargoId,encargadoId));
+                //empleados.add(new Empleado(empleadoId,nombreEmpleado,apellidoEmpleado,sueldo,horaEntrada,horaSalida,cargoId,encargadoId));
                         
             }
                     

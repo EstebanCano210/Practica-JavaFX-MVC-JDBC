@@ -1,5 +1,5 @@
 
-use SuperKinal;
+use SuperKinal;
 
 -- Clientes
 -- Agregar
@@ -11,7 +11,7 @@ begin
 end$$
 delimiter ;
  
- call sp_AgregarCliente('Juan','Guerra','6534-8968','ciudad','cf');
+-- call sp_AgregarCliente('Luis','Hernandrez','6954-9268','Villa Nueva','cf');
 -- Listar
 delimiter $$
 create procedure sp_ListarClientes()
@@ -77,7 +77,7 @@ create procedure sp_AgregarCargo(in nomCar varchar(30), in desCar varchar (100))
 	End$$
 Delimiter ;
 
-CALL sp_AgregarCargo('Vendedor', 'Encargado del servicio de ventas');
+-- call sp_AgregarCargo('Vendedor', 'Encargado del servicio de ventas');
 
 -- Eliminar
 Delimiter $$
@@ -100,7 +100,7 @@ create procedure sp_ListarCargos()
 	End $$
 Delimiter ;
 
-call sp_ListarCargos();
+-- call sp_ListarCargos();
 
 -- Editar
 Delimiter $$
@@ -140,7 +140,7 @@ Create procedure sp_AgregarEmpleado(in nomEmp varchar(30), in apeEmp varchar(30)
 	End$$
 Delimiter ;
 
-CALL sp_AgregarEmpleado('Juan', 'Perez', 2500.00, '09:00:00', '17:00:00', 2, NULL);
+-- CALL sp_AgregarEmpleado('Juan', 'Perez', 2500.00, '09:00:00', '17:00:00', 1, NULL);
 
 
 -- Eliminar
@@ -168,7 +168,7 @@ create procedure sp_ListarEmpleado()
 	End $$
 Delimiter ;
 
-call sp_ListarEmpleado();
+-- call sp_ListarEmpleado();
 
 -- Editar
 Delimiter $$
@@ -206,14 +206,14 @@ create procedure sp_BuscarEmpleados(in empId int)
 Delimiter ;
 
 -- Encargado
-DELIMITER $$
-CREATE PROCEDURE sp_AsignarEncargado(in empId int, in encId int)
-	BEGIN 
-		UPDATE Empleados
-			SET
-				encargadoId = encId;
-	END$$
-DELIMITER ;
+Delimiter $$
+Create Procedure sp_AsignarEncargado(in empId int,in encId int) 
+    Begin
+		Update Empleados 
+			Set encargadoId = encId
+					Where empleadoId = empId;
+	End$$
+Delimiter ;
 
 -- Facturas
 -- Agregar
@@ -236,7 +236,7 @@ create procedure sp_EliminarFactura(in facId int)
 	End $$
 Delimiter ;
 
-call sp_EliminarFactura(2);
+-- call sp_EliminarFactura(2);
 
 -- Listar
 Delimiter $$
@@ -250,7 +250,7 @@ create procedure sp_ListarFactura()
 	End $$
 Delimiter ;
 
-call sp_ListarFactura();
+-- call sp_ListarFactura();
 -- Editar
 Delimiter $$
 Create procedure sp_EditarFactura(in fec date, in hr time, in cliId int, in empId int, in tot decimal(10,2))
@@ -292,7 +292,7 @@ create procedure sp_AgregarTicket(in desTic varchar(250), in cliId int, in facId
 	End$$
 Delimiter ;
 
-call sp_AgregarTicket('Problema 2	','',1,1);
+-- call sp_AgregarTicket('Problema 2	','',1,1);
 
 -- Eliminar
 Delimiter $$
@@ -313,7 +313,7 @@ create procedure sp_ListarTicketSoporte()
     End $$
 Delimiter ;  
 
-call sp_ListarTicketSoporte();
+-- call sp_ListarTicketSoporte();
 
 -- Editar
 Delimiter $$
@@ -732,5 +732,27 @@ create procedure sp_BuscarDetalleFac(in detFacId int)
 	End $$
 delimiter ;
 
+delimiter $$
+Create procedure sp_AgregarUsuario(usu varchar(30), con varchar(100), naId int,empId int)
+    begin
+		insert into Usuarios(usuario,contrasenia,nivelAccesoId,EmpleadoId) values
+			(usu , con, naId, empId);
+    end $$
+delimiter ;
+
+delimiter $$
+Create procedure sp_buscarUsuario(usu varchar(30))
+    begin
+		select * from Usuarios
+			where usuario = usu;
+    end $$
+delimiter ;
+
+delimiter $$
+Create procedure sp_listarNivelAcceso()
+    begin
+		select * from nivelesAcceso;
+    end $$
+delimiter ;
 
 SET GLOBAL time_zone = '-6:00';

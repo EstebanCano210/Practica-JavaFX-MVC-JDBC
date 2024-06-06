@@ -43,7 +43,7 @@ create table Facturas(
     clienteId int not null,
     empleadoId int not null,
     total decimal(10,2),
-    primary key PK_facturaId(facturaI),
+    primary key PK_facturaId(facturaId),
     constraint FK_Facturas_Clientes foreign key Facturas(clienteId)
         references Clientes(clienteId),
     constraint FK_Facturas_Empleados foreign key Facturas(empleadoId)
@@ -116,6 +116,25 @@ create table Promociones(
     constraint FK_Promociones_Productos foreign key Promociones(productoId)
 		references Productos(productoId)
 ); 
+
+create table NivelesAcceso(
+	nivelAccesoId int not null auto_increment,
+    nivelAcceso varchar(40) not null,
+    primary key PK_nivelAccesoId(nivelAccesoId)
+);
+
+create table Usuarios(
+	usuarioId int not null auto_increment,
+    usuario varchar(30) not null,
+    contrasenia varchar(100) not null,
+    nivelAccesoId int not null,
+    empleadoId int not null,
+    primary key PK_usuarioId(usuarioId),
+    constraint FK_Usuarios_NivelesAcceso foreign key(nivelAccesoId)
+		references NivelesAcceso(nivelAccesoId),
+	constraint FK_Usuarios_Empleados foreign key(empleadoId)
+		references Empleados(empleadoId)
+);
 
 create table DetalleCompras(
 	detalleCompraId int not null auto_increment,
